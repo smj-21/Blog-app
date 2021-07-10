@@ -1,0 +1,33 @@
+<%- include('partials/header') %>
+
+<div class="ui main text container">
+    <div class="ui huge header" style="color: rgba(245, 245, 245,1);">WELCOME TO MY BLOG PAGE! </div>
+    <h5 style="color: whitesmoke;">(This blog page uses the concept of RESTful Routing.)</h5>
+    <div id="box" class="ui top attached segment">
+        <div class="ui divided items">
+
+            <% blogs.forEach(function(blog){ %>
+                <div class="item">
+                    <div class="image"><img id="img" src="<%= blog.image %>"></div>   
+                </div>
+                <div class="content">
+                    <h2><%= blog.title %></h2>
+                    <div class="meta">
+                        <span>Created on <%= blog.created.toDateString() %></span> 
+                    </div>
+                    <div class="description">
+                        <%- blog.body.substring(0,100) %>...
+                    </div>
+                    <div class="extra">
+                        <a id="button" class="ui floated basic violet button " href="/<%= blog._id %>">View More</a> 
+                    </div>
+                </div>
+                
+            <% }); %>
+
+        </div>
+    </div>
+</div>
+
+
+<%- include ('partials/footer') %>
